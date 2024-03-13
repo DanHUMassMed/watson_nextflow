@@ -6,8 +6,8 @@ import java.util.Date
 class WorkflowUtils {
 
     public static void initialize(params, log) {
-        if(!params.data_remote) {
-          Nextflow.error("ERROR: params.data_remote is required for this pipeline. Please add to config and resume")
+        if(!params.results_dir) {
+          Nextflow.error("ERROR: params.results_dir is required for this pipeline. Please add to config and resume")
         }
     }
 

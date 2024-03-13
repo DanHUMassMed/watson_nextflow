@@ -75,7 +75,7 @@ if __name__ == "__main__":
     category_data_file = sys.argv[1]
     file_name = category_data_file.replace('\\','')
     df = pd.read_csv(file_name) 
-    df.to_csv(f"{file_name[:-4]}_out.csv")
-    get_ontology_data(df, df['category_1'].iloc[0])
+    ontology_df = get_ontology_data(df, df['category_1'].iloc[0])
+    ontology_df.to_csv(f"{file_name[:-4]}_out.csv",index=False)
     
     
