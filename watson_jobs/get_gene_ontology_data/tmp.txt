@@ -1,0 +1,137 @@
+76010,76145d76009
+< WBGene00194653,GO:0016020,Cellular_component,membrane
+< WBGene00194654,GO:0016020,Cellular_component,membrane
+< WBGene00194689,GO:0016020,Cellular_component,membrane
+< WBGene00194691,GO:0016020,Cellular_component,membrane
+< WBGene00194697,GO:0016020,Cellular_component,membrane
+< WBGene00194698,GO:0016020,Cellular_component,membrane
+< WBGene00194700,GO:0016020,Cellular_component,membrane
+< WBGene00194701,GO:0016020,Cellular_component,membrane
+< WBGene00194706,GO:0016779,Molecular_function,nucleotidyltransferase activity
+< WBGene00194706,GO:0006378,Biological_process,mRNA polyadenylation
+< WBGene00194707,GO:0052906,Molecular_function,tRNA (guanine(37)-N(1))-methyltransferase activity
+< WBGene00194707,GO:0016740,Molecular_function,transferase activity
+< WBGene00194707,GO:0009019,Molecular_function,tRNA (guanine-N1-)-methyltransferase activity
+< WBGene00194707,GO:0008168,Molecular_function,methyltransferase activity
+< WBGene00194707,GO:0005737,Cellular_component,cytoplasm
+< WBGene00194707,GO:0005739,Cellular_component,mitochondrion
+< WBGene00194707,GO:0005634,Cellular_component,nucleus
+< WBGene00194707,GO:0005759,Cellular_component,mitochondrial matrix
+< WBGene00194707,GO:0006400,Biological_process,tRNA modification
+< WBGene00194707,GO:0030488,Biological_process,tRNA methylation
+< WBGene00194707,GO:0032259,Biological_process,methylation
+< WBGene00194707,GO:0008033,Biological_process,tRNA processing
+< WBGene00194707,GO:0070901,Biological_process,mitochondrial tRNA methylation
+< WBGene00194707,GO:0002939,Biological_process,tRNA N1-guanine methylation
+< WBGene00194708,GO:0016020,Cellular_component,membrane
+< WBGene00194710,GO:0016020,Cellular_component,membrane
+< WBGene00194710,GO:0035869,Cellular_component,ciliary transition zone
+< WBGene00194710,GO:1905515,Biological_process,non-motile cilium assembly
+< WBGene00194710,GO:1904491,Biological_process,protein localization to ciliary transition zone
+< WBGene00194712,GO:0016020,Cellular_component,membrane
+< WBGene00194715,GO:0016020,Cellular_component,membrane
+< WBGene00194726,GO:0004888,Molecular_function,transmembrane signaling receptor activity
+< WBGene00194726,GO:0016020,Cellular_component,membrane
+< WBGene00194726,GO:0007606,Biological_process,sensory perception of chemical stimulus
+< WBGene00194727,GO:0045087,Biological_process,innate immune response
+< WBGene00194730,GO:0016020,Cellular_component,membrane
+< WBGene00194737,GO:0004222,Molecular_function,metalloendopeptidase activity
+< WBGene00194737,GO:0008233,Molecular_function,peptidase activity
+< WBGene00194737,GO:0016787,Molecular_function,hydrolase activity
+< WBGene00194737,GO:0046872,Molecular_function,metal ion binding
+< WBGene00194737,GO:0008237,Molecular_function,metallopeptidase activity
+< WBGene00194737,GO:0008270,Molecular_function,zinc ion binding
+< WBGene00194737,GO:0005840,Cellular_component,ribosome
+< WBGene00194737,GO:0031012,Cellular_component,extracellular matrix
+< WBGene00194737,GO:0005615,Cellular_component,extracellular space
+< WBGene00194737,GO:0006508,Biological_process,proteolysis
+< WBGene00194737,GO:0030574,Biological_process,collagen catabolic process
+< WBGene00194737,GO:0030198,Biological_process,extracellular matrix organization
+< WBGene00194747,GO:0016020,Cellular_component,membrane
+< WBGene00194780,GO:0016020,Cellular_component,membrane
+< WBGene00194799,GO:0008528,Molecular_function,G protein-coupled peptide receptor activity
+< WBGene00194799,GO:0016020,Cellular_component,membrane
+< WBGene00194799,GO:0005886,Cellular_component,plasma membrane
+< WBGene00194799,GO:0007186,Biological_process,G protein-coupled receptor signaling pathway
+< WBGene00194821,GO:0008528,Molecular_function,G protein-coupled peptide receptor activity
+< WBGene00194821,GO:0004930,Molecular_function,G protein-coupled receptor activity
+< WBGene00194821,GO:0005886,Cellular_component,plasma membrane
+< WBGene00194821,GO:0016020,Cellular_component,membrane
+< WBGene00194821,GO:0007186,Biological_process,G protein-coupled receptor signaling pathway
+< WBGene00194850,GO:0016020,Cellular_component,membrane
+< WBGene00194855,GO:0016020,Cellular_component,membrane
+< WBGene00194867,GO:0007218,Biological_process,neuropeptide signaling pathway
+< WBGene00194868,GO:0016020,Cellular_component,membrane
+< WBGene00194870,GO:0046920,Molecular_function,alpha-(1->3)-fucosyltransferase activity
+< WBGene00194870,GO:0036065,Biological_process,fucosylation
+< WBGene00194892,GO:0000793,Cellular_component,condensed chromosome
+< WBGene00194894,GO:0016020,Cellular_component,membrane
+< WBGene00194895,GO:0016020,Cellular_component,membrane
+< WBGene00194896,GO:0016020,Cellular_component,membrane
+< WBGene00194910,GO:0016020,Cellular_component,membrane
+< WBGene00194915,GO:0016020,Cellular_component,membrane
+< WBGene00194918,GO:0016020,Cellular_component,membrane
+< WBGene00194919,GO:0016020,Cellular_component,membrane
+< WBGene00194921,GO:0007218,Biological_process,neuropeptide signaling pathway
+< WBGene00194926,GO:0016020,Cellular_component,membrane
+< WBGene00194930,GO:0016787,Molecular_function,hydrolase activity
+< WBGene00194934,GO:0016791,Molecular_function,phosphatase activity
+< WBGene00194934,GO:0016020,Cellular_component,membrane
+< WBGene00194934,GO:0016311,Biological_process,dephosphorylation
+< WBGene00194952,GO:0016020,Cellular_component,membrane
+< WBGene00194986,GO:0016757,Molecular_function,glycosyltransferase activity
+< WBGene00194986,GO:0000026,Molecular_function,"alpha-1,2-mannosyltransferase activity"
+< WBGene00194986,GO:0016740,Molecular_function,transferase activity
+< WBGene00194986,GO:0005783,Cellular_component,endoplasmic reticulum
+< WBGene00194986,GO:0005789,Cellular_component,endoplasmic reticulum membrane
+< WBGene00194986,GO:0016020,Cellular_component,membrane
+< WBGene00195010,GO:0016020,Cellular_component,membrane
+< WBGene00195050,GO:0016020,Cellular_component,membrane
+< WBGene00195051,GO:0016020,Cellular_component,membrane
+< WBGene00195063,GO:0005739,Cellular_component,mitochondrion
+< WBGene00195063,GO:0033617,Biological_process,mitochondrial cytochrome c oxidase assembly
+< WBGene00195063,GO:0032981,Biological_process,mitochondrial respiratory chain complex I assembly
+< WBGene00195069,GO:0016020,Cellular_component,membrane
+< WBGene00195070,GO:0031625,Molecular_function,ubiquitin protein ligase binding
+< WBGene00195070,GO:0003735,Molecular_function,structural constituent of ribosome
+< WBGene00195070,GO:0031386,Molecular_function,protein tag activity
+< WBGene00195070,GO:0022627,Cellular_component,cytosolic small ribosomal subunit
+< WBGene00195070,GO:0016567,Biological_process,protein ubiquitination
+< WBGene00195070,GO:0019941,Biological_process,modification-dependent protein catabolic process
+< WBGene00195073,GO:0016020,Cellular_component,membrane
+< WBGene00195081,GO:0016301,Molecular_function,kinase activity
+< WBGene00195081,GO:0016310,Biological_process,phosphorylation
+< WBGene00195086,GO:0016020,Cellular_component,membrane
+< WBGene00195093,GO:0003723,Molecular_function,RNA binding
+< WBGene00195093,GO:0003676,Molecular_function,nucleic acid binding
+< WBGene00195142,GO:0016020,Cellular_component,membrane
+< WBGene00195143,GO:0007218,Biological_process,neuropeptide signaling pathway
+< WBGene00195145,GO:0016020,Cellular_component,membrane
+< WBGene00195150,GO:0016020,Cellular_component,membrane
+< WBGene00195166,GO:0016020,Cellular_component,membrane
+< WBGene00195177,GO:0016020,Cellular_component,membrane
+< WBGene00195185,GO:0005840,Cellular_component,ribosome
+< WBGene00195210,GO:0016020,Cellular_component,membrane
+< WBGene00195211,GO:0016020,Cellular_component,membrane
+< WBGene00195212,GO:0016020,Cellular_component,membrane
+< WBGene00195215,GO:0016020,Cellular_component,membrane
+< WBGene00195239,GO:0032299,Cellular_component,ribonuclease H2 complex
+< WBGene00195239,GO:0006401,Biological_process,RNA catabolic process
+< WBGene00195243,GO:0016020,Cellular_component,membrane
+< WBGene00195243,GO:0007218,Biological_process,neuropeptide signaling pathway
+< WBGene00195244,GO:0016020,Cellular_component,membrane
+< WBGene00195248,GO:0022890,Molecular_function,inorganic cation transmembrane transporter activity
+< WBGene00195248,GO:0005794,Cellular_component,Golgi apparatus
+< WBGene00195248,GO:0016020,Cellular_component,membrane
+< WBGene00195248,GO:0005783,Cellular_component,endoplasmic reticulum
+< WBGene00195248,GO:0005769,Cellular_component,early endosome
+< WBGene00195248,GO:0000139,Cellular_component,Golgi membrane
+< WBGene00195248,GO:0072546,Cellular_component,EMC complex
+< WBGene00195248,GO:0005768,Cellular_component,endosome
+< WBGene00195248,GO:0010008,Cellular_component,endosome membrane
+< WBGene00195248,GO:0031901,Cellular_component,early endosome membrane
+< WBGene00195248,GO:0005886,Cellular_component,plasma membrane
+< WBGene00195248,GO:0051234,Biological_process,establishment of localization
+< WBGene00195248,GO:0055085,Biological_process,transmembrane transport
+< WBGene00195250,GO:0016020,Cellular_component,membrane
+< WBGene00195256,GO:0003677,Molecular_function,DNA binding
