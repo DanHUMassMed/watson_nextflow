@@ -2,6 +2,7 @@
 import sys
 import os
 import pandas as pd
+import shutil
 
 OUTPUT_DIR="./batches"
 
@@ -14,14 +15,19 @@ if __name__ == "__main__":
     number_of_batches = sys.argv[2]
 
     gene_ids_df = pd.read_csv(f"{gene_ids_csv}")
-    gene_ids_df = gene_ids_df[gene_ids_df["Gene_Type"] != "piRNA_gene"]
+    if "Gene_Type" in gene_ids_df:
+        gene_ids_df = gene_ids_df[gene_ids_df["Gene_Type"] != "piRNA_gene"]
     gene_ids_df.reset_index(drop=True, inplace=True)
 
-    if not os.path.exists(OUTPUT_DIR):
-        # Create the directory if it does not exist
-        os.makedirs(OUTPUT_DIR)
+
+    if os.path.exists(OUTPUT_DIR):
+        shutil.rmtree(OUTPUT_DIR)
+        
+    # Create the directory
+    os.makedirs(OUTPUT_DIR)
 
     # Calculate the batch size
+    
     batch_size = len(gene_ids_df) // int(number_of_batches)
 
     # Create a batch ID column

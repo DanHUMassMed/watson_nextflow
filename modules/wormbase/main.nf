@@ -14,7 +14,7 @@ process GET_WORMBASE_DATA {
 }
 
 process GET_WORMBASE_BATCHES {
-    publishDir "${params.data_dir}/batches", mode:'copy'
+    publishDir "${params.data_dir}", mode:'copy', overwrite: true
     conda "dan-dev-sc"
 
     input:
@@ -32,46 +32,115 @@ process GET_WORMBASE_BATCHES {
 process GET_WORMBASE_PAPERS {
     publishDir "${params.results_dir}/references", mode:'copy'
     conda "dan-dev-sc"
+    maxForks 10
 
     input:
     path wb_data_file
 
     output:
-    path "${(wb_data_file.name).substring(0, (wb_data_file.name).length() - 4)}_out.csv"
+    path "${(wb_data_file.name).substring(0, (wb_data_file.name).length() - 4)}_out.csv", optional: true
 
     """
     get_reference_data.py "$wb_data_file"
     """
 }
 
-process AGGREGATE_WORMBASE_PAPERS {
-    publishDir "${params.results_dir}/references", mode:'copy'
+
+process GET_GENE_ONTOLOGY_DATA {
+    publishDir "${params.results_dir}/ontologies", mode:'copy'
+    conda "dan-dev-sc"
+    maxForks 10
+
+    input:
+    path wb_data_file
+
+    output:
+    path "${(wb_data_file.name).substring(0, (wb_data_file.name).length() - 4)}_out.csv", optional: true
+
+    """
+    get_gene_ontology_data.py "$wb_data_file"
+    """
+}
+
+
+process GET_PUBMED_IDS {
+    publishDir "${params.results_dir}/pubmed_ids", mode:'copy'
+    conda "dan-dev-sc"
+    maxForks 10
+
+    input:
+    path wb_data_file
+
+    output:
+    path "${(wb_data_file.name).substring(0, (wb_data_file.name).length() - 4)}_out.csv", optional: true
+
+    """
+    get_pubmed_ids.py "$wb_data_file"
+    """
+}
+
+process GET_PMID_SUMMARY {
+    publishDir "${params.results_dir}/pmid_summary", mode:'copy'
+    conda "dan-dev-sc"
+    maxForks 1
+
+    input:
+    path wb_data_file
+
+    output:
+    path "${(wb_data_file.name).substring(0, (wb_data_file.name).length() - 4)}_out.csv", optional: true
+
+    """
+    get_pmid_summary.py "$wb_data_file"
+    """
+}
+
+process AGGREGATE_DATA {
+    publishDir "${params.publish_dir}", mode:'copy'
     conda "dan-dev-sc"
 
     input:
     path('*')
+    val out_file_nm
 
     output:
-    path "wb_reference_papers.csv"
+    path "${out_file_nm}"
 
     """
-    aggregate_reference_data.py
+    aggregate_data.py "${out_file_nm}"
     """
 }
 
-process PROCESS_ONTOLOGIES {
-    publishDir "${params.results_dir}/ontology", mode:'copy'
+
+process SELECT_UNIQUE_DATA {
+    publishDir "${params.publish_dir}", mode:'copy'
     conda "dan-dev-sc"
 
     input:
-    path category_data_file
+    path input_csv_file
+    val unique_field
 
     output:
-    path "${(category_data_file.name).substring(0, (category_data_file.name).length() - 4)}_out.csv"
+    path "unique_${input_csv_file.name}"
 
     """
-    get_gene_ontology_data.py "$category_data_file"
+    select_unique.py "${input_csv_file}" "${unique_field}"
     """
 }
 
 
+process GET_PMID_JOIN {
+    publishDir "${params.publish_dir}", mode:'copy'
+    conda "dan-dev-sc"
+
+    input:
+    path pmid_summary_csv
+    path wb_pubmedp_ids
+
+    output:
+    path "wb_wbp_id_summary.csv"
+
+    """
+    get_pmid_join.py "${pmid_summary_csv}" "${wb_pubmedp_ids}"
+    """
+}

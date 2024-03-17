@@ -11,38 +11,35 @@ import logging.config
 try:
     logging.config.fileConfig('logging.config')
 except Exception:
-    logging.basicConfig(filename='pub_worm_reference_data.log', level=logging.DEBUG)
+    file_path = os.path.abspath(__file__)
+    file_name = os.path.basename(file_path)
+    logging.basicConfig(filename=f"pub_worm_{file_name}.log", level=logging.DEBUG)
 
 logger = logging.getLogger(__name__)
 
 # Function to iterate a list of Wormcat items
-def get_reference_data(batch_file_nm):
+def get_pubmed_ids(batch_file_nm):
     out_file_nm = batch_file_nm.replace(".csv", "_out.csv")
     wormbase_df = pd.read_csv(batch_file_nm)
 
-    log_msg = f"Starting get_reference_data with {len(wormbase_df):,} entries"
+    log_msg = f"Starting get_pubmed_ids with {len(wormbase_df):,} entries"
     logger.debug(log_msg)
 
-    wormbase_api = WormbaseAPI("field", "gene", "references")
+    wormbase_api = WormbaseAPI("field", "paper", "pmid")
 
     concatenated_df = pd.DataFrame()
     dfs = []
     index=0
     number_of_rows=len(wormbase_df)
     for df_index, row in wormbase_df.iterrows():
-        wormbase_id = row['Wormbase_Id']
+        wormbase_id = row['wbp_id']
         index +=1
         #print(f"{index:<4} of {len(transmembrane_transport_df)} {row['wormbase_id']}")
         ret_data = wormbase_api.get_wormbase_data(wormbase_id)
-        if 'references_list' in ret_data:
-            if isinstance(ret_data['references_list'], dict):
-                references_df = pd.DataFrame(ret_data['references_list'], index=[0])
-            else:
-                references_df = pd.DataFrame(ret_data['references_list'])
-            if 'wbp_abstract' in references_df.columns:
-                references_df = references_df.drop(columns=['wbp_abstract'])
-            references_df['wormbase_id']=wormbase_id
-            dfs.append(references_df)
+        if 'pm_id' in ret_data:
+                references_df = pd.DataFrame(ret_data, index=[0])
+                references_df['wbp_id']=wormbase_id
+                dfs.append(references_df)
         else:
             print("-", end='')
             #print(f"Return has no references_list!\n{ret_data}")
@@ -86,5 +83,5 @@ def copy_file_with_prefix(src_file, prefix):
 if __name__ == "__main__":
     wb_data_file = sys.argv[1]
     file_name = wb_data_file.replace('\\','')
-    get_reference_data(file_name)
+    get_pubmed_ids(file_name)
     

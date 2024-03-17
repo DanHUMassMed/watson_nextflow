@@ -1,39 +1,30 @@
+#!/usr/bin/env nextflow 
 
-process PARSE_WORMCAT_CATEGORIES {
-    publishDir "${params.results_dir}/wormcat", mode:'copy'
-    conda "dan-dev-sc"
+log.info """\
+ P A R A M S -- GET GENE ONTOLOGY DATA
+ =====================================
+ wormbase_version       : ${params.wormbase_version}
+ number_of_batches      : ${params.number_of_batches}
+ gene_ontology_data_csv : ${params.gene_ontology_data_csv}
+ publish_dir            : ${params.publish_dir}
+ """
 
-    input:
-    path wormcat_db
-    val category
+// import modules
+include { GET_WORMBASE_DATA       } from '../modules/wormbase'
+include { GET_WORMBASE_BATCHES    } from '../modules/wormbase'
+include { GET_GENE_ONTOLOGY_DATA  } from '../modules/wormbase'
+include { AGGREGATE_DATA          } from '../modules/wormbase'
 
-    output:
-    path 'wc_*.csv'
-
-    """
-    parse_wormcat_categorie.py "$wormcat_db" "$category"
-    """
+/* 
+ * main script flow
+ */
+workflow RUN_GET_GENE_ONTOLOGY_DATA {
+    GET_WORMBASE_DATA ( params.wormbase_version )
+    GET_WORMBASE_BATCHES( GET_WORMBASE_DATA.out.gene_ids_csv, params.number_of_batches )
+    GET_GENE_ONTOLOGY_DATA ( GET_WORMBASE_BATCHES.out.flatten() )
+    AGGREGATE_DATA ( GET_GENE_ONTOLOGY_DATA.out.collect(), params.gene_ontology_data_csv )
 }
 
-
-
-
-params.category_pag_names=["Transcription: unassigned", "Transmembrane protein", "Transmembrane transport", "Unassigned"]
-//params.category_names=["Peroxisome"]
-//params.category_names=["Cell cycle", "Chaperone", "Cilia", "Cytoskeleton", "Development", "DNA" ]
-//params.category_names= ["Extracellular material", "Globin", "Lysosome", "Major sperm protein", "Metabolism", "mRNA functions", "Muscle function"]
-//params.category_names=["Neuronal function", "Nuclear pore", "Nucleic acid", "Protein modification", "Proteolysis general", "Proteolysis proteasome", "Ribosome", "Signaling"]
-//params.category_names=["Stress response", "Trafficking", "Transcription factor", "Transcription: chromatin",  "Transcription: dosage compensation", "Transcription: general machinery"]
-
-//params.category_not_covered_names=["Non-coding RNA", "Pseudogene"]
-params.category_not_covered_names=["Pseudogene"]
-
-params.wormcat_db_file = "${launchDir}/data/whole_genome_v2_nov-11-2021.csv"
-params.results_dir = "${launchDir}/results"
-WorkflowUtils.initialize(params, log)
-
-workflow {
-    category_ch = channel.fromList(params.category_not_covered_names)
-    PARSE_WORMCAT_CATEGORIES(params.wormcat_db_file, category_ch)|
-    PROCESS_CATEGORY
+workflow.onComplete {
+	log.info ( workflow.success ? "\nDone! Wormbase data can be found here --> ${params.publish_dir}\n" : "Oops .. something went wrong" )
 }
